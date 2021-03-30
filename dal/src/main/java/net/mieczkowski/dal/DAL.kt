@@ -1,5 +1,7 @@
 package net.mieczkowski.dal
 
+import net.mieczkowski.dal.modules.NetworkModule
+import net.mieczkowski.dal.modules.ParsingModule
 import org.koin.core.context.loadKoinModules
 
 /**
@@ -7,9 +9,12 @@ import org.koin.core.context.loadKoinModules
  */
 object DAL {
 
-    fun init(){
-        loadKoinModules(listOf(
-            NetworkModule.module
-        ))
+    fun init() {
+        loadKoinModules(
+            listOf(
+                ParsingModule.module,
+                NetworkModule.module
+            )
+        )
     }
 }
