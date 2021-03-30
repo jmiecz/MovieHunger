@@ -22,4 +22,6 @@ java {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
 }
