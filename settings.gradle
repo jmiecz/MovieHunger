@@ -1,2 +1,4 @@
+include ':dal'
+include ':models'
 include ':app'
 rootProject.name = "Movie Hunger"
