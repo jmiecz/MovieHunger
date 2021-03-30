@@ -2,7 +2,24 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
+}
+
+def apikeysPropertiesFile = rootProject.file("api_keys.properties")
+def apikeysProperties = new Properties()
+apikeysProperties.load(new FileInputStream(apikeysPropertiesFile))
+
+android {
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tools_version
+
+    defaultConfig{
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField("String", "TMDB_API_KEY", apikeysProperties['tmdb_api_key'])
+    }
 }
 
 java {
@@ -15,7 +32,5 @@ dependencies {
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
-
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation "io.insert-koin:koin-core:$koin_version"
 }
