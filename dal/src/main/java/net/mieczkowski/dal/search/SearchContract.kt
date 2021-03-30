@@ -1,4 +1,4 @@
-package net.mieczkowski.dal.services
+package net.mieczkowski.dal.search
 
 import net.mieczkowski.dal.BuildConfig
 import net.mieczkowski.models.MovieResults
@@ -8,11 +8,11 @@ import retrofit2.http.Query
 /**
  * Created by Josh Mieczkowski on 3/30/2021.
  */
-interface SearchService {
+interface SearchContract {
 
     @GET("search/movie")
     suspend fun search(
-        @Query("query") searchQuery: String,
+        @Query("query") query: String,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): MovieResults
 }

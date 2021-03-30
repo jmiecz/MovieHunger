@@ -1,7 +1,6 @@
 package net.mieczkowski.dal.modules
 
 import net.mieczkowski.dal.BuildConfig
-import net.mieczkowski.dal.services.SearchService
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Converter
@@ -15,8 +14,6 @@ internal object NetworkModule {
     val module = module {
         single { provideOkHttpClient() }
         single { provideRetrofit(get(), get()) }
-
-        single { get<Retrofit>().create(SearchService::class.java) }
     }
 
     private fun provideOkHttpClient(): OkHttpClient =

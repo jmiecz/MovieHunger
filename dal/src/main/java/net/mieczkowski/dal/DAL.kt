@@ -2,6 +2,7 @@ package net.mieczkowski.dal
 
 import net.mieczkowski.dal.modules.NetworkModule
 import net.mieczkowski.dal.modules.ParsingModule
+import net.mieczkowski.dal.search.SearchService
 import org.koin.core.context.loadKoinModules
 
 /**
@@ -13,7 +14,9 @@ object DAL {
         loadKoinModules(
             listOf(
                 ParsingModule.module,
-                NetworkModule.module
+                NetworkModule.module,
+
+                SearchService.module
             )
         )
     }
