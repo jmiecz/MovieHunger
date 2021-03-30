@@ -31,6 +31,14 @@ allprojects {
         google()
         jcenter()
     }
+
+    pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
+        kotlin.targets.matching { it.platformType.name == "jvm" }.all {
+            compilations.all {
+                kotlinOptions.useIR = true
+            }
+        }
+    }
 }
 
 task clean(type: Delete) {
