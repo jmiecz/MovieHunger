@@ -28,6 +28,8 @@ java {
 }
 
 dependencies {
+    implementation project(':models')
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
