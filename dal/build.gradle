@@ -47,4 +47,9 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
     implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
+    testImplementation "io.insert-koin:koin-test:$koin_version"
+    testImplementation 'org.mockito:mockito-core:3.0.0'
 }

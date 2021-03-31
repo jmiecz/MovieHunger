@@ -11,6 +11,7 @@ buildscript {
         coroutines_version = "1.4.1"
         koin_version= "3.0.1-beta-2"
         jackson_version = "2.12.2"
+        junit_version = "4.13.2"
     }
 
     repositories {
