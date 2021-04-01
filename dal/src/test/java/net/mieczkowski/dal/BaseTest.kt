@@ -1,4 +1,4 @@
-package net.mieczkowski.dal.discover
+package net.mieczkowski.dal
 
 import org.junit.Rule
 import org.koin.test.KoinTest

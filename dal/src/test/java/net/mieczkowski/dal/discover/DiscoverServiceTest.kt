@@ -1,6 +1,7 @@
 package net.mieczkowski.dal.discover
 
 import kotlinx.coroutines.runBlocking
+import net.mieczkowski.dal.BaseTest
 import net.mieczkowski.models.Movie
 import net.mieczkowski.models.MovieResults
 import org.junit.Rule
