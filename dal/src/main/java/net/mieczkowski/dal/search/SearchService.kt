@@ -1,6 +1,6 @@
 package net.mieczkowski.dal.search
 
-import net.mieczkowski.dal.BuildConfig
+import net.mieczkowski.dal.exts.setPosterUrl
 import net.mieczkowski.models.Movie
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -21,16 +21,6 @@ class SearchService : KoinComponent {
 
     private val searchContract: SearchContract by inject()
 
-    suspend fun search(query: String): List<Movie> {
-        val movies = searchContract.search(query).movies
-
-        movies.forEach {
-            if (it.posterUrl != null) {
-                it.posterUrl =
-                    BuildConfig.TMDB_IMG_URL + it.posterUrl
-            }
-        }
-
-        return movies
-    }
+    suspend fun search(query: String): List<Movie> =
+        searchContract.search(query).movies.onEach { it.setPosterUrl() }
 }

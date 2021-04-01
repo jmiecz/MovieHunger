@@ -1,28 +1,23 @@
 package net.mieczkowski.dal.search
 
 import kotlinx.coroutines.runBlocking
+import net.mieczkowski.dal.discover.BaseTest
 import net.mieczkowski.models.Movie
 import net.mieczkowski.models.MovieResults
 import org.junit.Rule
 import org.junit.Test
-import org.koin.test.KoinTest
 import org.koin.test.KoinTestRule
 import org.koin.test.inject
-import org.koin.test.mock.MockProviderRule
 import org.koin.test.mock.declareMock
-import org.mockito.BDDMockito.anyString
+import org.mockito.ArgumentMatchers.anyString
 import org.mockito.BDDMockito.given
-import org.mockito.Mockito
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 /**
  * Created by Josh Mieczkowski on 3/31/2021.
  */
-class SearchServiceTest : KoinTest {
-
-    @get:Rule
-    val mockProvider = MockProviderRule.create { Mockito.mock(it.java) }
+class SearchServiceTest : BaseTest() {
 
     @get:Rule
     val koinTestRule = KoinTestRule.create {
@@ -36,10 +31,12 @@ class SearchServiceTest : KoinTest {
         declareMock<SearchContract> {
             runBlocking {
                 given(search(anyString(), anyString())).will {
-                    MovieResults(listOf(
-                        Movie(42, "title", null, "overview", 1337),
-                        Movie(123, "another title", "someposter.jpg", "more overview", 987)
-                    ))
+                    MovieResults(
+                        listOf(
+                            Movie(42, "title", null, "overview", 1337),
+                            Movie(123, "another title", "someposter.jpg", "more overview", 987)
+                        )
+                    )
                 }
             }
         }
